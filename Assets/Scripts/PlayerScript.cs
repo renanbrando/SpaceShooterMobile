@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
 	public int health;
 	public float speed;
 	public float limitLeft, limitRight;
+	public GameObject explosionPreFab;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,7 @@ public class PlayerScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D c){
 		if (c.gameObject.tag == "Enemy") {
 			health--;
+			Instantiate (explosionPreFab, transform.position, transform.rotation);
 			Destroy (c.gameObject);
 			if (health <= 0) {
 				Destroy (gameObject);

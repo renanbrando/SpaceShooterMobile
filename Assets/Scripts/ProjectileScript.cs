@@ -6,6 +6,7 @@ public class ProjectileScript : MonoBehaviour {
 
 	public float speed;
 	public float lifeSpam;
+	public GameObject explosionPreFab;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class ProjectileScript : MonoBehaviour {
 
 		// Destroys the projectile by collision
 		if (c.gameObject.tag == "Enemy") {
+			Instantiate (explosionPreFab, transform.position, transform.rotation);
 			Destroy (c.gameObject);
 			Destroy (gameObject);
 		}

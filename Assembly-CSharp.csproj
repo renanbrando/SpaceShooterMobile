@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DestroyScript.cs" />
      <Compile Include="Assets\Scripts\GenerateEnemiesScript.cs" />
      <Compile Include="Assets\Scripts\GunScript.cs" />
      <Compile Include="Assets\Scripts\MoveBackgroundScript.cs" />
