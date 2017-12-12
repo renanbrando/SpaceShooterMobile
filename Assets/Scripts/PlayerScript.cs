@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
+	public int health;
 	public float speed;
 	public float limitLeft, limitRight;
 
@@ -14,6 +15,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		print (health);
 		Move ();
 	}
 
@@ -27,6 +29,16 @@ public class PlayerScript : MonoBehaviour {
 		// Warp
 		if (transform.position.x < limitLeft || transform.position.x > limitRight) {
 			transform.position = new Vector2 (transform.position.x * -1, transform.position.y);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c){
+		if (c.gameObject.tag == "Enemy") {
+			health--;
+			Destroy (c.gameObject);
+			if (health <= 0) {
+				Destroy (gameObject);
+			}
 		}
 	}
 }
